@@ -40,6 +40,7 @@ func main() {
 
 	flag.Parse()
 
+	// Selection bit
 	if strings.HasPrefix(args[0], "--") {
 		// If the flag is formatted like --<name>=<val>, we don't want to skip over two
 		if strings.Contains(args[0], "=") {
