@@ -58,14 +58,16 @@ func main() {
 
 	// Convert the weather data to the requested unit
 	switch strings.ToLower(unit) {
+	case "celsius":
+		fallthrough
 	case "c":
 		data = data.ToCelsius()
-		break
 	case "freedom":
+		fallthrough
+	case "farhenheit":
 		fallthrough
 	case "f":
 		data = data.ToFreedomUnits()
-		break
 	default:
 		fmt.Printf("Warning! Unknown unit '%s'. Defaulting to kelvin.\n", unit)
 	}
