@@ -3,9 +3,10 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/liondadev/csp-weather-app/weather"
 	"os"
 	"strings"
+
+	"github.com/liondadev/csp-weather-app/weather"
 )
 
 func printUsageAndExit() {
@@ -37,7 +38,6 @@ func main() {
 	// Allow people to put a flag in to change the unit
 	var unit string
 	flag.StringVar(&unit, "unit", "c", "the unit to return the temperature in (c, k, or f)")
-
 	flag.Parse()
 
 	// Selection bit
