@@ -94,9 +94,10 @@ func (d Data) String() string {
 	}
 
 	return strings.ReplaceAll(fmt.Sprintf(`== Weather In: %s ==
+Weather: %s
 Temperature: %.2f[unit] (min: %.2f[unit], max: %.2f[unit])
 Feels Like: %.2f[unit]
-Humdity: %d%%`, d.Name, d.Main.Temp, d.Main.TempMin, d.Main.TempMax, d.Main.FeelsLike, d.Main.Humidity), "[unit]", d.unitSymbol)
+Humdity: %d%%`, d.Name, d.Weather[0].Main, d.Main.Temp, d.Main.TempMin, d.Main.TempMax, d.Main.FeelsLike, d.Main.Humidity), "[unit]", d.unitSymbol)
 }
 
 type Provider interface {
