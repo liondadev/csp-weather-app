@@ -43,6 +43,10 @@ func (p *OpenWeatherMapProvider) Get(loc string) (Data, error) {
 		return Data{}, fmt.Errorf("failed to read body into byte array: %v", err)
 	}
 
+	if rep.StatusCode == http.StatusNotFound {
+		return Data{}, fmt.Errorf("failed to get weather for city: %d", rep.StatusCode)
+	}
+
 	if rep.StatusCode != http.StatusOK {
 		return Data{}, fmt.Errorf("got non-200 status code: %d", rep.StatusCode)
 	}
